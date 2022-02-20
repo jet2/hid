@@ -32,3 +32,5 @@ if [[ -d hidapi ]]; then
 fi
 mv $dir hidapi
 rm -Rf hidapi.orig "$archive"
+
+./dummy-packages.sh

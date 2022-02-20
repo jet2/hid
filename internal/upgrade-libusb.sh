@@ -30,3 +30,5 @@ if [[ -d libusb ]]; then
 fi
 mv libusb-${version} libusb
 rm -Rf libusb.orig "$archive"
+
+./dummy-packages.sh
