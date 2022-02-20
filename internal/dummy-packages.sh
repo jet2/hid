@@ -11,6 +11,8 @@ done
 
 pkg=$(cd ..; go list)/internal
 
+cksum="$(find hidapi libusb -type f -name '*.[ch]' | sort | xargs cat | openssl sha256)"
+
 {
 	echo 'package internal'
 	echo
@@ -20,4 +22,9 @@ pkg=$(cd ..; go list)/internal
 		printf '\t_ "%s/%s"\n' "$pkg" "$d"
 	done
 	echo ')'
+	echo
+	echo '// Checksum is a checksum of *.c and *.h files in order to trigger a rebuild'
+	echo '// of package ./.. if one of those files changes.'
+	echo '// See https://github.com/golang/go/issues/26366#issuecomment-405683150'
+	printf 'const Checksum = "%s"\n' "$cksum"
 } >pkg.go
