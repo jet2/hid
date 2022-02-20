@@ -10,9 +10,9 @@
 package hid
 
 /*
-#cgo CFLAGS: -I./hidapi/hidapi
+#cgo CFLAGS: -I./internal/hidapi/hidapi
 
-#cgo linux CFLAGS: -I./libusb/libusb -DDEFAULT_VISIBILITY="" -DOS_LINUX -D_GNU_SOURCE -DPOLL_NFDS_TYPE=int
+#cgo linux CFLAGS: -I./internal/libusb/libusb -DDEFAULT_VISIBILITY="" -DOS_LINUX -D_GNU_SOURCE -DPOLL_NFDS_TYPE=int
 #cgo linux,!android LDFLAGS: -lrt
 #cgo darwin CFLAGS: -DOS_DARWIN
 #cgo darwin LDFLAGS: -framework CoreFoundation -framework IOKit
@@ -34,11 +34,11 @@ package hid
 	#include "strerror.c"
 	#include "sync.c"
 
-	#include "hidapi/libusb/hid.c"
+	#include "internal/hidapi/libusb/hid.c"
 #elif OS_DARWIN
-	#include "hidapi/mac/hid.c"
+	#include "internal/hidapi/mac/hid.c"
 #elif OS_WINDOWS
-	#include "hidapi/windows/hid.c"
+	#include "internal/hidapi/windows/hid.c"
 #endif
 */
 import "C"
