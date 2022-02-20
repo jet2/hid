@@ -17,6 +17,8 @@ fi
 
 archive=libusb-${version}.tar.bz2
 
+cd "$(dirname "$0")"
+
 curl -L -o "$archive" "https://github.com/libusb/libusb/releases/download/v$version/$archive"
 
 rm -Rf libusb-${version}

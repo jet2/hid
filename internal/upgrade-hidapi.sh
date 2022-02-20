@@ -19,6 +19,8 @@ fi
 archive=hidapi-${version}.zip
 dir=hidapi-hidapi-${version}
 
+cd "$(dirname "$0")"
+
 curl -L -o "$archive" "https://github.com/libusb/hidapi/archive/refs/tags/$archive"
 
 rm -Rf $dir
